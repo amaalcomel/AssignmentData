@@ -1,5 +1,4 @@
-import streamlit 
-import pandas 
-import plotly.express as px
-import matplotlib 
-import plotly.graph_objects as go
+streamlit
+pandas
+plotly
+matplotlib
