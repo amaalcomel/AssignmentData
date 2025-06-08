@@ -6,9 +6,41 @@ import plotly.graph_objects as go
 
 st.image('socialmedia.jpg')
 
-st.title("""Social Media vs. Productivity""")
+st.title("""📊Social Media vs. Productivity""")
 
 df = pd.read_csv("cleandata.csv")
+
+
+st.markdown(
+    """
+    <style>
+    /* App-wide background (nude + pattern) */
+    .stApp {
+        background-color: #f9f5f2;
+        background-image: 
+            linear-gradient(135deg, rgba(190, 170, 160, 0.07) 25%, transparent 25%),
+            linear-gradient(225deg, rgba(190, 170, 160, 0.07) 25%, transparent 25%),
+            linear-gradient(45deg, rgba(190, 170, 160, 0.07) 25%, transparent 25%),
+            linear-gradient(315deg, rgba(190, 170, 160, 0.07) 25%, transparent 25%);
+        background-size: 40px 40px;
+        background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+    }
+
+    /* Content container with solid background to preserve readability */
+    .st-emotion-cache-6qob1r, .st-emotion-cache-1y4p8pa {
+        background-color: rgba(255, 255, 255, 0.85);  /* Light solid bg under text */
+        padding: 1rem;
+        border-radius: 10px;
+    }
+
+    /* Optional: darker text for contrast */
+    h1, h2, h3, p, label {
+        color: #3e3e3e;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 
 
@@ -16,6 +48,9 @@ df = pd.read_csv("cleandata.csv")
 mean_daily = round(df['Daily Social Media Time'].mean(), 2)
 max_coffee = round(df['Coffee Consumption per Day'].max(), 2)
 min_productivity = round(df['Actual Productivity Score'].min(), 2)
+
+# Spacer
+st.markdown("---")
 
 # Most/least common platforms
 most_common = df['Social Platform Preference'].value_counts().idxmax()
@@ -40,7 +75,8 @@ col4, col5 = st.columns(2)
 col4.metric("Most Preferred Platform", f"{most_common}", f"{most_common_count} users")
 col5.metric("Least Preferred Platform", f"{least_common}", f"{least_common_count} users")
 
-
+# Spacer
+st.markdown("---")
 
 # Histogram for Job Satisfaction Scores 
 st.subheader("Job Satisfaction Scores") 
@@ -177,7 +213,15 @@ fig.update_layout(
     font=dict(size=14)
 )
 fig.update_yaxes(tickformat=".2f")  # 2 decimal places
-st.plotly_chart(fig)    
+st.plotly_chart(fig)   
+
+
+
+
+st.markdown("### ℹ️ Additional Information:")
+st.info("💡 Studies show that people who reduce social media usage by 30 minutes a day report better focus.") 
+st.warning("⚠️ Heavy usage can lead to procrastination and anxiety.") 
+st.success("✅ Good practice: use screen time apps to monitor and control usage.") 
 
 
 
