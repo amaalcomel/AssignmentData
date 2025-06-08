@@ -6,41 +6,12 @@ import plotly.graph_objects as go
 
 st.image('socialmedia.jpg')
 
-st.title("""📊Social Media vs. Productivity""")
+st.title("📊 Social Media vs Productivity") 
 
 df = pd.read_csv("cleandata.csv")
 
 
-st.markdown(
-    """
-    <style>
-    /* App-wide background (nude + pattern) */
-    .stApp {
-        background-color: #f9f5f2;
-        background-image: 
-            linear-gradient(135deg, rgba(190, 170, 160, 0.07) 25%, transparent 25%),
-            linear-gradient(225deg, rgba(190, 170, 160, 0.07) 25%, transparent 25%),
-            linear-gradient(45deg, rgba(190, 170, 160, 0.07) 25%, transparent 25%),
-            linear-gradient(315deg, rgba(190, 170, 160, 0.07) 25%, transparent 25%);
-        background-size: 40px 40px;
-        background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
-    }
 
-    /* Content container with solid background to preserve readability */
-    .st-emotion-cache-6qob1r, .st-emotion-cache-1y4p8pa {
-        background-color: rgba(255, 255, 255, 0.85);  /* Light solid bg under text */
-        padding: 1rem;
-        border-radius: 10px;
-    }
-
-    /* Optional: darker text for contrast */
-    h1, h2, h3, p, label {
-        color: #3e3e3e;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 
 
